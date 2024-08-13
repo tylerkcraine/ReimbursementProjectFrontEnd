@@ -100,7 +100,7 @@ export const Reimbursements: React.FC = () => {
 
     return <div className="container text-center h-100">
         <ReimbursementNavbar></ReimbursementNavbar>
-        <h2>Users</h2>
+        <h2>Reimbursements</h2>
         <Table striped bordered hover variant="dark">
             <thead>
                 <tr>
@@ -115,7 +115,7 @@ export const Reimbursements: React.FC = () => {
                 {reimbursements.map(filter.method)}
             </tbody>
         </Table>
-        <Button className="m-2" onClick={() => {navigate("/createReimbursement")}}>Create Reimbursement</Button>
+        <Button className="m-2 btn-success" onClick={() => {navigate("/createReimbursement")}}>Create Reimbursement</Button>
         <Button className="m-2" onClick={() => {setFilter({method: allReimbursements})}}>Show all reimbursements</Button>
         <Button className="m-2" onClick={() => {setFilter({method: pendingReimbursements})}}>Show pending reimbursements</Button> 
     </div>

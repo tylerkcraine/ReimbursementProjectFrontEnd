@@ -46,7 +46,7 @@ export const EditUser: React.FC = () => {
 
     const roleRender = () => {
         if (currentUserStore.currentUser?.role.roleType == "ADMIN" || currentUserStore.currentUser?.role.roleType == "MANAGER") {
-            return <Form.Select className="bg-dark text-light"aria-label="Select role for the user" name="role" onChange={storeValue} defaultValue={editUser.role.roleType}>
+            return <Form.Select className="bg-dark text-light text-center"aria-label="Select role for the user" name="role" onChange={storeValue} defaultValue={editUser.role.roleType}>
                     <option disabled selected>Select a role</option>
                     <option value="ADMIN">Admin</option>
                     <option value="MANAGER">Manager</option>

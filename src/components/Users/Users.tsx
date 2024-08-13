@@ -83,7 +83,7 @@ export const Users: React.FC = () => {
                             <td>{item.role?.roleType}</td>
                             <td className="flex flex-row">
                                 <Button className = "w-10 m-1" onClick={() => navigate("/editUser", {state: {user: item}})}>Edit</Button>
-                                <Button className = "w-10 m-1" onClick={() => deleteUser(item.accountId)}>Delete</Button>
+                                <Button className = "w-10 m-1 btn-danger" onClick={() => deleteUser(item.accountId)}>Delete</Button>
                             </td>
                         </tr>
                     }

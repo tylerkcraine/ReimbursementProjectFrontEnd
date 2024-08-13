@@ -28,6 +28,10 @@ export const Register: React.FC = () => {
     }
 
     const register = async () => {
+        if (user.firstName === "" || user.lastName === "" || user.rawPassword == "") {
+            toast.error("All Fields Required", store.toast_options)
+            return;
+        }
         await axios.post(store.base_url + "/register", user, {headers: {"Access-Control-Allow-Origin": "*"}, withCredentials:true})
         .then(() => {toast.success("Success! Please login", store.toast_options); navigate("/")})
         .catch((error:AxiosError) => {
@@ -38,9 +42,9 @@ export const Register: React.FC = () => {
         )
     }
 
-    return <div className="register-container h-100">
+    return <div className="login container mx-auto">
         <ReimbursementNavbar></ReimbursementNavbar>
-            <div className="text-container flex flex-column text-center">
+            <div className="text-container flex flex-column text-center mx-auto">
                 <h1>Reimbursement System</h1>
                 <h2>Please make an account</h2>
 
@@ -57,7 +61,7 @@ export const Register: React.FC = () => {
                 </div>
 
                 <div className="input-container">
-                    <input className="bg-dark text-light border border-light m-2 w-75 rounded " type="text" placeholder="Last Name" name="lastname" onChange={storeValue}/>
+                    <input className="bg-dark text-light border border-light m-2 w-75 rounded" type="text" placeholder="Last Name" name="lastname" onChange={storeValue}/>
                 </div>
 
                 <button className="register-button btn btn-primary" onClick={register}>Register</button>
